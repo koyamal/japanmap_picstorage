@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{prefName}}</title>
+</head>
+<body>
+<div>
+    <p1>Hello {{ prefName }}</p1>
+</div>
+{% for i in pictures %}
+<div>
+    <a href="/photo/{{ i.picture_id }}">
+        <img src="/photo/{{ i.picture_id }}" width="300">
+    </a><br>
+    <span class="datetime">{{ i.created_at }}</span>
+</div>
+{% endfor %}
+<div>
+    <form action="/upload/try" method="POST" enctype="multipart/form-data">
+        <legend>写真ファイルを選んでください。</legend>
+        <div>
+            <label for="upfile">JPEGファイルを選択：</label>
+            <input type="file" name="upfile" id="upfile">
+            <input type="hidden" name="pref_name" id="pref_name" value="{{ prefName }}">
+        </div>
+        <div>
+            <button type="submit">アップロード</button>
+        </div>
+    </form>
+</div>
+<div>
+    <a href="/">マップへ</a>
+</div>
+</body>
+</html>
