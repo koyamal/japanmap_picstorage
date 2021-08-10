@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
     <title>{{prefName}}</title>
 </head>
 <body>
 <div>
-    <p1>Hello {{ prefName }}</p1>
+    <h1 class="top">Photos of {{ prefName }}</h1>
 </div>
 {% for i in pictures %}
 <div>
@@ -18,7 +19,7 @@
 {% endfor %}
 <div>
     <form action="/upload/try" method="POST" enctype="multipart/form-data">
-        <legend>写真ファイルを選んでください。</legend>
+        <legend>写真を選んでください。</legend>
         <div>
             <label for="upfile">JPEGファイルを選択：</label>
             <input type="file" name="upfile" id="upfile">
